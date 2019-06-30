@@ -7,3 +7,4 @@ Strategies under consideration:
 * Option Strangle
 * Synthetic Long Put
 * Iron Butterfly
+* Iron Condor
