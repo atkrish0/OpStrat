@@ -10,4 +10,4 @@ Strategies under consideration:
 * Iron Condor
 * Diagonal Spread
 * Jade Lizard
-* 
+* Long Short Combo
