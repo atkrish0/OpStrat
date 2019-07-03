@@ -8,3 +8,6 @@ Strategies under consideration:
 * Synthetic Long Put
 * Iron Butterfly
 * Iron Condor
+* Diagonal Spread
+* Jade Lizard
+* 
