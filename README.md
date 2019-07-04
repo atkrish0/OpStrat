@@ -11,3 +11,4 @@ Strategies under consideration:
 * Diagonal Spread
 * Jade Lizard
 * Long Short Combo
+* Collar
