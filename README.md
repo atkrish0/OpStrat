@@ -12,3 +12,4 @@ Strategies under consideration:
 * Jade Lizard
 * Long Short Combo
 * Collar
+* Calendar Spread
