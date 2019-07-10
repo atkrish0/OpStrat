@@ -13,3 +13,4 @@ Strategies under consideration:
 * Long Short Combo
 * Collar
 * Calendar Spread
+* Bear Call Ladder
