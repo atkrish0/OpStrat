@@ -15,3 +15,4 @@ Strategies under consideration:
 * Calendar Spread
 * Bear Call Ladder
 * Bear Spread
+* Broken Wing Butterfly
