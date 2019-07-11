@@ -14,3 +14,4 @@ Strategies under consideration:
 * Collar
 * Calendar Spread
 * Bear Call Ladder
+* Bear Spread
