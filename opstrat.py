@@ -16,6 +16,7 @@ def synthetic_long_put(spot_price, long_call_strike_price, long_call_premium):
     # The function takes sT which is a range of possible values of stock price at expiration, 
     # strike price of the call option and premium of the call option as input. 
     # It returns the call option payoff.
+
     def call_payoff(sT, strike_price, premium):
         return np.where(sT > strike_price, sT - strike_price, 0) - premium
     
@@ -86,4 +87,50 @@ def jade_lizard(spot_price, long_call_strike_price, long_call_premium, \
     print("Maximum Profit: {}".format(max(jade_lizard_payoff)))
     print("Maximum Loss: {}".format(min(jade_lizard_payoff)))
     
-jade_lizard(688, 750, 4.3, 730, 6.8, 660, 7.85)
+def iron_condor(spot_price, long_call_strike_price, long_call_premium, \
+                short_call_strike_price, short_call_premium, \
+                long_put_strike_price, long_put_premium, \
+                short_put_strike_price, short_put_premium):
+    
+    sT = np.arange(0.9*spot_price, 1.1*spot_price, 1)
+    
+    def call_payoff(sT, strike_price, premium):
+        return np.where(sT > strike_price, sT - strike_price, 0) - premium
+    
+    long_call_payoff = call_payoff(sT, long_call_strike_price, long_call_premium)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium) * -1.0 
+
+    def put_payoff(sT, strike_price, premium):
+        return np.where(sT < strike_price, strike_price - sT, 0) - premium
+
+    long_put_payoff = put_payoff(sT, long_put_strike_price, long_put_premium)
+    short_put_payoff = put_payoff(sT, short_put_strike_price, short_put_premium) * -1.0
+
+    iron_condor_payoff = long_call_payoff + short_call_payoff + long_put_payoff + short_put_payoff
+
+    print("Maximum Profit: {}".format(max(iron_condor_payoff)))
+    print("Maximum Loss: {}".format(min(iron_condor_payoff)))
+
+def iron_butterfly(spot_price, long_call_strike_price, long_call_premium, \
+                   short_call_strike_price, short_call_premium, \
+                   long_put_strike_price, long_put_premium, \
+                   short_put_strike_price, short_put_premium):
+    
+    sT = np.arange(0.7*spot_price, 1.3*spot_price, 1)
+    
+    def call_payoff(sT, strike_price, premium):
+        return np.where(sT > strike_price, sT - strike_price, 0) - premium
+    
+    long_call_payoff = call_payoff(sT, long_call_strike_price, long_call_premium)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium) * -1.0
+
+    def put_payoff(sT, strike_price, premium):
+        return np.where(sT < strike_price, strike_price - sT, 0) - premium
+
+    long_put_payoff = put_payoff(sT, long_put_strike_price, long_put_premium)
+    short_put_payoff = put_payoff(sT, short_put_strike_price, short_put_premium) * -1.0
+
+    iron_butterfly_payoff = long_call_payoff + short_call_payoff + long_put_payoff + short_put_payoff 
+
+    print("Maximum Profit: {}".format(max(iron_butterfly_payoff)))
+    print("Maximum Loss: {}".format(min(iron_butterfly_payoff)))
