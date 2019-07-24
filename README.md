@@ -4,13 +4,12 @@ Implementations of  widely used options trading strategies, with a number of exp
 
 Strategies under consideration:
 
-* Option Strangle
 * Synthetic Long Put
-* Iron Butterfly
-* Iron Condor
-* Diagonal Spread
-* Jade Lizard
+* Option Strangle
 * Long Short Combo
+* Jade Lizard
+* Iron Butterfly
+* Diagonal Spread
 * Collar
 * Calendar Spread
 * Bear Call Ladder
