@@ -8,6 +8,7 @@ Strategies under consideration:
 * Option Strangle
 * Long Short Combo
 * Jade Lizard
+* Iron Condor
 * Iron Butterfly
 * Diagonal Spread
 * Collar
