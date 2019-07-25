@@ -10,8 +10,8 @@ Strategies under consideration:
 * Jade Lizard
 * Iron Condor
 * Iron Butterfly
-* Diagonal Spread
 * Collar
+* Diagonal Spread
 * Calendar Spread
 * Bear Call Ladder
 * Bear Spread
