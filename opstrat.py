@@ -8,6 +8,7 @@ A python library implementation of widely used Options Trading Strategies.
 # import libraries
 import pandas as pd
 import numpy as np
+import mibian as mb
 
 def synthetic_long_put(spot_price, long_call_strike_price, long_call_premium):
     sT = np.arange(0.7 * spot_price, 1.3 * spot_price, 1)
@@ -134,3 +135,19 @@ def iron_butterfly(spot_price, long_call_strike_price, long_call_premium, \
 
     print("Maximum Profit: {}".format(max(iron_butterfly_payoff)))
     print("Maximum Loss: {}".format(min(iron_butterfly_payoff)))
+
+def collar(spot_price, long_put_strike_price, long_put_premium, short_call_strike_price, short_call_premium):
+
+    sT = np.arange(0, spot_price*0.7, 1)
+
+    def call_payoff(sT, strike_price, premium):
+        return np.where(sT < strike_price, premium, premium - sT + strike_price)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium)
+
+    def put_payoff(sT, strike_price, premium):
+        return np.where(sT < strike_price, strike_price - sT, 0) - premium 
+    long_put_payoff = put_payoff(sT, long_put_strike_price, long_put_premium)
+
+    collar_payoff = long_put_payoff + short_call_payoff
+    print("Maximum Profit: {}".format(max(collar_payoff)))
+    print("Maximum Loss: {}".format(min(collar_payoff)))
