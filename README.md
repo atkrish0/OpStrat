@@ -11,9 +11,4 @@ Strategies under consideration:
 * Iron Condor
 * Iron Butterfly
 * Collar
-* Diagonal Spread
-* Calendar Spread
-* Bear Call Ladder
-* Bear Spread
-* Butterfly
-* Broken Wing Butterfly
+
