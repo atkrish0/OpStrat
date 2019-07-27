@@ -151,3 +151,23 @@ def collar(spot_price, long_put_strike_price, long_put_premium, short_call_strik
     collar_payoff = long_put_payoff + short_call_payoff
     print("Maximum Profit: {}".format(max(collar_payoff)))
     print("Maximum Loss: {}".format(min(collar_payoff)))
+
+def butterfly_spread(spot_price, higher_long_call_strike_price, lower_long_call_strike_price, \
+              higher_long_call_premium, lower_long_call_premium, \
+              short_call_strike_price, short_call_premium):
+    
+    sT = np.arange(10,60,1)
+
+    def call_payoff (sT, strike_price, premium):
+        return np.where(sT> strike_price, sT-strike_price, 0)-premium
+
+    higher_long_call_payoff = call_payoff(sT, higher_long_call_strike_price, higher_long_call_premium)
+    lower_long_call_payoff = call_payoff(sT, lower_long_call_strike_price, lower_long_call_premium)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium) * -1.0
+
+    butterfly_spread_payoff = lower_long_call_payoff + higher_long_call_payoff + 2 * short_call_payoff
+
+    print("Maximum Profit: {}".format(max(butterfly_spread_payoff)))
+    print("Maximum Loss: {}".format(min(butterfly_spread_payoff)))
+
+butterfly_spread(40, 35, 30, 0.85, 3.15, 32.5, 1.8)
