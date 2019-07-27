@@ -11,4 +11,5 @@ Strategies under consideration:
 * Iron Condor
 * Iron Butterfly
 * Collar
+* Butterfly
 
