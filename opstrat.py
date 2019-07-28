@@ -3,12 +3,14 @@ Created on Wed Jul 17 13:02:07 2019
 
 @author: Atheesh Krishnan
 
-A python library implementation of widely used Options Trading Strategies.
+A python library implementation of widely used Options (Financial Derivatives) Trading Strategies.
 """
 # import libraries
 import pandas as pd
 import numpy as np
 import mibian as mb
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def synthetic_long_put(spot_price, long_call_strike_price, long_call_premium):
     sT = np.arange(0.7 * spot_price, 1.3 * spot_price, 1)
@@ -170,4 +172,18 @@ def butterfly_spread(spot_price, higher_long_call_strike_price, lower_long_call_
     print("Maximum Profit: {}".format(max(butterfly_spread_payoff)))
     print("Maximum Loss: {}".format(min(butterfly_spread_payoff)))
 
-butterfly_spread(40, 35, 30, 0.85, 3.15, 32.5, 1.8)
+def bull_call_spread(spot_price, long_call_strike_price, long_call_premium, \
+                     short_call_strike_price, short_call_premium):
+    
+    sT = np.arange(0.95*spot_price, 1.05*spot_price, 1)
+
+    def call_payoff(sT, strike_price, premium):
+        return np.where(sT > strike_price, sT - strike_price, 0) - premium
+
+    long_call_payoff = call_payoff(sT, long_call_strike_price, long_call_premium)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium) * -1.0
+
+    bull_call_spread_payoff = long_call_payoff + short_call_payoff
+
+    print("Maximum Profit: {}".format(max(bull_call_spread_payoff)))
+    print("Maximum Loss: {}".format(min(bull_call_spread_payoff)))
