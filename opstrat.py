@@ -187,3 +187,24 @@ def bull_call_spread(spot_price, long_call_strike_price, long_call_premium, \
 
     print("Maximum Profit: {}".format(max(bull_call_spread_payoff)))
     print("Maximum Loss: {}".format(min(bull_call_spread_payoff)))
+
+def broken_wing_butterfly(spot_price, long_call_strike_price_lower, long_call_premium_lower, \
+                          long_call_strike_price_higher, long_call_premium_higher, \
+                          short_call_strike_price, short_call_premium):
+    
+    sT = np.arange(0.9 * spot_price, 1.1 * spot_price, 1)
+
+    def call_payoff(sT, strike_price, premium):
+        return np.where(sT > strike_price, sT - strike_price, 0) - premium
+    
+    lower_long_call_strike_payoff = call_payoff(sT, long_call_strike_price_lower, long_call_premium_lower)
+    higher_long_call_strike_payoff = call_payoff(sT, long_call_strike_price_higher, long_call_premium_higher)
+    short_call_payoff = call_payoff(sT, short_call_strike_price, short_call_premium)*-1.0
+
+    broken_wing_butterfly = lower_long_call_strike_payoff + higher_long_call_strike_payoff + \
+                            (2 * short_call_payoff)
+
+    print("Maximum Profit: {}".format(max(broken_wing_butterfly)))
+    print("Maximum Loss: {}".format(min(broken_wing_butterfly)))
+
+
