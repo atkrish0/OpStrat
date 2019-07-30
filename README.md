@@ -13,4 +13,5 @@ Strategies under consideration:
 * Collar
 * Butterfly Spread
 * Broken Wing Butterfly
+* Bear Spread
 
