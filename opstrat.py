@@ -208,3 +208,20 @@ def broken_wing_butterfly(spot_price, long_call_strike_price_lower, long_call_pr
     print("Maximum Loss: {}".format(min(broken_wing_butterfly)))
 
 
+def bear_spread(spot_price, long_put_strike_price, long_put_premium, \
+                short_put_strike_price, short_put_premium):
+    
+    sT = np.arange(spot_price * 0.7, spot_price * 1.3, 1)
+
+    def put_payoff(sT, strike_price, premium):
+        return np.where(sT < strike_price, strike_price - sT, 0) - premium
+
+    long_put_payoff = put_payoff(sT, long_put_strike_price, long_put_premium)
+    short_put_payoff = put_payoff(sT, short_put_strike_price, short_put_premium) * -1.0    
+
+    bear_put_payoff = long_put_payoff + short_put_payoff 
+
+    print("Maximum Profit: {}".format(max(bear_put_payoff)))
+    print("Maximum Loss: {}".format(min(bear_put_payoff)))  
+    
+
