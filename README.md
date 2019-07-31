@@ -14,4 +14,5 @@ Strategies under consideration:
 * Butterfly Spread
 * Broken Wing Butterfly
 * Bear Spread
+* Bear Call Ladder
 
