@@ -224,4 +224,20 @@ def bear_spread(spot_price, long_put_strike_price, long_put_premium, \
     print("Maximum Profit: {}".format(max(bear_put_payoff)))
     print("Maximum Loss: {}".format(min(bear_put_payoff)))  
     
+def bear_call_ladder(spot_price, OTM_long_call, premium_OTM_long_call, ATM_long_call, premium_ATM_long_call, ITM_short_call, premium_ITM_short_call):
+    
+    sT = np.arange(0.7*spot_price, 1.3*spot_price, 1)
+
+    def call_payoff (sT, strike_price, premium):
+        return np.where(sT> strike_price, sT-strike_price, 0)-premium
+
+    OTM_long_call_payoff = call_payoff(sT, OTM_long_call, premium_OTM_long_call)
+    ATM_long_call_payoff = call_payoff(sT, ATM_long_call, premium_ATM_long_call)
+    ITM_Short_call_payoff = call_payoff(sT, ITM_short_call, premium_ITM_short_call)*-1.0
+
+    bear_call_ladder = OTM_long_call_payoff + ATM_long_call_payoff + ITM_Short_call_payoff
+
+    print("Maximum Profit: {}".format(max(bear_call_ladder)))
+    print("Maximum Loss: {}".format(min(bear_call_ladder)))
+
 
