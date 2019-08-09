@@ -32,4 +32,6 @@ The formula for calculating maximum loss is given below:
     Max Loss = Premium Paid + Commissions Paid
     Max Loss Occurs When Price of Underlying = Strike Price of Long Call
 
+#### Option Strangle:
 
+A strangle is an investment strategy involving the purchase or sale of particular option derivatives that allows the holder to profit based on how much the price of the underlying security moves, with relatively minimal exposure to the direction of price movement. A purchase of particular options is known as a long strangle, while a sale of the same options is known as a short strangle.
