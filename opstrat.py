@@ -30,6 +30,16 @@ def synthetic_long_put(spot_price, long_call_strike_price, long_call_premium):
     synthetic_long_put_payoff = long_call_payoff + stock_payoff  
     print("Maximum Profit: {}".format(max(synthetic_long_put_payoff)))
     print("Maximum Loss: {}".format(min(synthetic_long_put_payoff)))
+    # Plot
+    fig, ax = plt.subplots()
+    ax.spines['top'].set_visible(False) # Top border removed 
+    ax.spines['right'].set_visible(False) # Right border removed
+    ax.spines['bottom'].set_position('zero') # Sets the X-axis in the center
+    ax.plot(sT, synthetic_long_put_payoff, label='Synthetic Long Put')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.show()
     
 def option_strangle(spot_price, long_put_strike_price, long_put_premium,\
                    long_call_strike_price, long_call_premium):
@@ -48,6 +58,18 @@ def option_strangle(spot_price, long_put_strike_price, long_put_premium,\
     print("Maximum Profit: {}".format(max(strangle_payoff)))
     print("Maximum Loss: {}".format(min(strangle_payoff)))
     print("This strategy is suitable when the outlook on the stock is moderately bearish.")
+
+    # Plot
+    fig, ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+
+    ax.plot(sT,long_call_payoff,'--',label='Long Call',color='r')
+    ax.plot(sT,long_put_payoff,'--',label='Long Put',color='g')
+    ax.plot(sT,strangle_payoff,label='Strangle')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.show()
 
 def long_short_combo(spot_price, strike_price, premium_paid, premium_received):
     
