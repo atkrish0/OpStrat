@@ -87,6 +87,17 @@ def long_short_combo(spot_price, strike_price, premium_paid, premium_received):
     
     print("Maximum Profit: {}".format(max(ls_combo_payoff)))
     print("Maximum Loss: {}".format(min(ls_combo_payoff)))
+    # plot
+    fix , ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT,ls_combo_payoff,color='b', label = 'Long Short Combo')
+    ax.plot(sT,short_put_payoff,'--',color='r', label = 'Short Put')
+    ax.plot(sT,long_call_payoff,'--',color='g', label = 'Long Call')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.grid()
+    plt.show()
     
 def jade_lizard(spot_price, long_call_strike_price, long_call_premium, \
                 short_call_strike_price, short_call_premium, \
@@ -111,6 +122,18 @@ def jade_lizard(spot_price, long_call_strike_price, long_call_premium, \
     
     print("Maximum Profit: {}".format(max(jade_lizard_payoff)))
     print("Maximum Loss: {}".format(min(jade_lizard_payoff)))
+    # plot
+    fig, ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT,payoff_long_call,'--',label='Long Strike Call',color='g')
+    ax.plot(sT,payoff_short_call,'--',label='Short Strike Call',color='r')
+    ax.plot(sT,payoff_short_put,'--',label='Short Strike Put',color='m')
+    ax.plot(sT,payoff,label='Jade Lizard Payoff')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and Loss')
+    plt.legend()
+    plt.grid()
+    plt.show()
     
 def iron_condor(spot_price, long_call_strike_price, long_call_premium, \
                 short_call_strike_price, short_call_premium, \
@@ -135,6 +158,20 @@ def iron_condor(spot_price, long_call_strike_price, long_call_premium, \
 
     print("Maximum Profit: {}".format(max(iron_condor_payoff)))
     print("Maximum Loss: {}".format(min(iron_condor_payoff)))
+
+    # plot
+    fig, ax = plt.subplots()
+    ax.spines['top'].set_position('zero')
+    ax.plot(sT,long_call_payoff,'--',label='Long 140 Strike Call',color='g')
+    ax.plot(sT,short_call_payoff,'--',label='Short 130 Strike Call',color='r')
+    ax.plot(sT,long_put_payoff,'--',label='Long 60 Strike Put',color='y')
+    ax.plot(sT,short_put_payoff,'--',label='Short 70 Strike Put',color='m')
+    ax.plot(sT,payoff,label='Iron Condor')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.grid()
+    plt.show()
 
 def iron_butterfly(spot_price, long_call_strike_price, long_call_premium, \
                    short_call_strike_price, short_call_premium, \
