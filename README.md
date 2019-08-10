@@ -16,6 +16,8 @@ Strategies under consideration:
 * Bear Spread
 * Bear Call Ladder
 
+## Description:
+
 #### Synthetic Long Put:
 
 A synthetic long put is created when short stock position is combined with a long call of the same series.
