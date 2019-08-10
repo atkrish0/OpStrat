@@ -35,3 +35,11 @@ The formula for calculating maximum loss is given below:
 #### Option Strangle:
 
 A strangle is an investment strategy involving the purchase or sale of particular option derivatives that allows the holder to profit based on how much the price of the underlying security moves, with relatively minimal exposure to the direction of price movement. A purchase of particular options is known as a long strangle, while a sale of the same options is known as a short strangle.
+
+#### Long Combo:
+
+A Long Combo strategy is a Bullish Trading Strategy employed when a trader is expecting the price of a stock, he is holding to move up. It involves selling an OTM Put and buying an OTM Call. The strategy requires less capital as the cost of Call Option is covered by premium received from Put Option.
+
+#### Jade Lizard:
+
+In options trading, a jade lizard is a custom option strategy which consists of a bear vertical spread created using call options, with the addition of a put option sold at a strike price lower than the strike prices of the call spread. For one underlying security, same expiration date, this strategy consists of buying a call option at one strike price, selling another call option at a lower strike price, then selling an OTM put option at a strike price lower than that of both call options. The addition of the sale of a put option is consistent with the expected move of the underlying and results in additional premium collected. The jade lizard strategy takes advantage of the volatility skew inherently priced into options with naked puts trading richer in premium than naked calls and short call spreads trading richer in premium than short put spreads. This volatility skew effect allows the trader to collect more premium for the overall position and thus, increasing the position's probability of profit. 
