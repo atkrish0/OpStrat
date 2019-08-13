@@ -40,3 +40,7 @@ In options trading, a jade lizard is a custom option strategy which consists of 
 An iron condor spread is constructed by selling one call spread and one put spread (same expiration day) on the same underlying instrument.
 All four options are typically out-of-the-money (although it is not a strict requirement). When you sell the call and put spreads, you are buying the iron condor. The cash collected represents the maximum profit for the position.
 It represents a 'market neutral' trade, meaning there is no inherent bullish or bearish bias.
+
+#### Iron Butterfly:
+
+The iron butterfly spread is a limited risk, limited profit trading strategy that is structured for a larger probability of earning a smaller limited profit when the underlying stock is perceived to have a low volatility. To setup an iron butterfly, the options trader buys a lower strike out-of-the-money put, sells a middle strike at-the-money put, sells a middle strike at-the-money call and buys another higher strike out-of-the-money call. This results in a net credit to put on the trade. 
