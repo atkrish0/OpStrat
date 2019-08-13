@@ -197,6 +197,19 @@ def iron_butterfly(spot_price, long_call_strike_price, long_call_premium, \
     print("Maximum Profit: {}".format(max(iron_butterfly_payoff)))
     print("Maximum Loss: {}".format(min(iron_butterfly_payoff)))
 
+    # plot
+    fig, ax = plt.subplots(figsize=(10,5))
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT, Iron_Butterfly_payoff, color ='b', label ='Iron Butterfly Spread')
+    ax.plot(sT, long_call_payoff,'--', color ='g', label = 'Long Call')
+    ax.plot(sT, short_put_payoff,'--', color ='r', label = 'Short Call')
+    ax.plot(sT, long_put_payoff,'--', color ='g',label = 'Long Put')
+    ax.plot(sT, short_put_payoff,'--', color ='r',label = 'Short Put')
+    plt.legend()
+    plt.xlabel('Stock Price (sT)')
+    plt.ylabel('Profit & Loss')
+    plt.show()
+
 def collar(spot_price, long_put_strike_price, long_put_premium, short_call_strike_price, short_call_premium):
 
     sT = np.arange(0, spot_price*0.7, 1)
@@ -212,6 +225,18 @@ def collar(spot_price, long_put_strike_price, long_put_premium, short_call_strik
     collar_payoff = long_put_payoff + short_call_payoff
     print("Maximum Profit: {}".format(max(collar_payoff)))
     print("Maximum Loss: {}".format(min(collar_payoff)))
+
+    fig, ax = plt.subplots()
+    ax.spines['top'].set_visible(False) # Top border removed 
+    ax.spines['right'].set_visible(False) # Right border removed
+    ax.spines['bottom'].set_position('zero') # Sets the X-axis in the center
+    ax.plot(sT, short_call_payoff,'--',label='Short Call',color='r')
+    ax.plot(sT, long_put_payoff,'--',label='Long Put',color='g')
+    ax.plot(sT, collar_payoff+sT-spot_price,label='Collar')
+    plt.xlabel('Stock Price', ha='left')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.show()
 
 def butterfly_spread(spot_price, higher_long_call_strike_price, lower_long_call_strike_price, \
               higher_long_call_premium, lower_long_call_premium, \
