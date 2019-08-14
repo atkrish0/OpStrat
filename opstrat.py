@@ -256,6 +256,18 @@ def butterfly_spread(spot_price, higher_long_call_strike_price, lower_long_call_
     print("Maximum Profit: {}".format(max(butterfly_spread_payoff)))
     print("Maximum Loss: {}".format(min(butterfly_spread_payoff)))
 
+    # plot
+    fig, ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT, butterfly_spread_payoff ,color='b', label= 'Butterfly Spread')
+    ax.plot(sT, lower_long_call_payoff,'--', color='g',label='Lower Strike Long Call')
+    ax.plot(sT, higher_long_call_payoff,'--', color='g', label='Higher Strike Long Call')
+    ax.plot(sT, short_call_payoff, '--', color='r', label='Short call')
+    plt.legend()
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit & Loss')
+    plt.show()
+
 def bull_call_spread(spot_price, long_call_strike_price, long_call_premium, \
                      short_call_strike_price, short_call_premium):
     
