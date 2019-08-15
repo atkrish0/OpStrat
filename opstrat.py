@@ -200,7 +200,7 @@ def iron_butterfly(spot_price, long_call_strike_price, long_call_premium, \
     # plot
     fig, ax = plt.subplots(figsize=(10,5))
     ax.spines['bottom'].set_position('zero')
-    ax.plot(sT, Iron_Butterfly_payoff, color ='b', label ='Iron Butterfly Spread')
+    ax.plot(sT, iron_butterfly_payoff, color ='b', label ='Iron Butterfly Spread')
     ax.plot(sT, long_call_payoff,'--', color ='g', label = 'Long Call')
     ax.plot(sT, short_put_payoff,'--', color ='r', label = 'Short Call')
     ax.plot(sT, long_put_payoff,'--', color ='g',label = 'Long Put')
@@ -283,6 +283,17 @@ def bull_call_spread(spot_price, long_call_strike_price, long_call_premium, \
 
     print("Maximum Profit: {}".format(max(bull_call_spread_payoff)))
     print("Maximum Loss: {}".format(min(bull_call_spread_payoff)))
+
+    # plot
+    fig, ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT,long_call_payoff,'--',label='Long 920 Strike Call',color='g')
+    ax.plot(sT,short_call_payoff,'--',label='Short 940 Strike Call ',color='r')
+    ax.plot(sT,bull_call_spread_payoff,label='Bull Call Spread')
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit and loss')
+    plt.legend()
+    plt.show()
 
 def broken_wing_butterfly(spot_price, long_call_strike_price_lower, long_call_premium_lower, \
                           long_call_strike_price_higher, long_call_premium_higher, \
