@@ -44,3 +44,7 @@ It represents a 'market neutral' trade, meaning there is no inherent bullish or 
 #### Iron Butterfly:
 
 The iron butterfly spread is a limited risk, limited profit trading strategy that is structured for a larger probability of earning a smaller limited profit when the underlying stock is perceived to have a low volatility. To setup an iron butterfly, the options trader buys a lower strike out-of-the-money put, sells a middle strike at-the-money put, sells a middle strike at-the-money call and buys another higher strike out-of-the-money call. This results in a net credit to put on the trade. 
+
+#### Collar:
+
+A collar is an options trading strategy that is constructed by holding shares of the underlying stock while simultaneously buying protective puts and selling call options against that holding. The puts and the calls are both out-of-the-money options having the same expiration month and must be equal in number of contracts. 
