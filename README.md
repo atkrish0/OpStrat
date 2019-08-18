@@ -69,3 +69,6 @@ The vertical bear spread is a vertical spread in which options with a lower stri
 
 The bear calendar spread and the diagonal bear spread are both time spread strategies used by option traders who believe that the price of the underlying security will remain stable in the near term but will eventually fall in the long term.
 
+#### Bear Call Ladder:
+
+Bear Call Ladder is an unlimited profit, limited risk strategy in options trading that is employed when the options trader thinks that the underlying security will experience significant volatility in the near term. To setup the Bear Call Ladder, the options trader sells an in-the-money call, purchases an at-the-money call and purchases another higher strike out-of-the-money call of the same underlying security and expiration date.
