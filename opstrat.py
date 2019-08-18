@@ -88,7 +88,7 @@ def long_short_combo(spot_price, strike_price, premium_paid, premium_received):
     print("Maximum Profit: {}".format(max(ls_combo_payoff)))
     print("Maximum Loss: {}".format(min(ls_combo_payoff)))
     # plot
-    fix , ax = plt.subplots()
+    fig, ax = plt.subplots()
     ax.spines['bottom'].set_position('zero')
     ax.plot(sT,ls_combo_payoff,color='b', label = 'Long Short Combo')
     ax.plot(sT,short_put_payoff,'--',color='r', label = 'Short Put')
@@ -314,6 +314,18 @@ def broken_wing_butterfly(spot_price, long_call_strike_price_lower, long_call_pr
     print("Maximum Profit: {}".format(max(broken_wing_butterfly)))
     print("Maximum Loss: {}".format(min(broken_wing_butterfly)))
 
+    # plot
+    fig, ax = plt.subplots()
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT, broken_wing_butterfly ,color='b', label= 'Broken Wing Butterfly Spread')
+    ax.plot(sT, lower_long_call_strike_payoff,'--', color='g',label='Lower Strike Long Call')
+    ax.plot(sT, higher_long_call_strike_payoff,'--', color='g', label='Higher Strike Long Call')
+    ax.plot(sT, short_call_payoff, '--', color='r', label='Short call')
+    plt.legend()
+    plt.grid()
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit & Loss')
+    plt.show()
 
 def bear_spread(spot_price, long_put_strike_price, long_put_premium, \
                 short_put_strike_price, short_put_premium):
