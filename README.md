@@ -48,3 +48,24 @@ The iron butterfly spread is a limited risk, limited profit trading strategy tha
 #### Collar:
 
 A collar is an options trading strategy that is constructed by holding shares of the underlying stock while simultaneously buying protective puts and selling call options against that holding. The puts and the calls are both out-of-the-money options having the same expiration month and must be equal in number of contracts. 
+
+#### Butterfly Spread:
+
+The butterfly spread is a neutral strategy that is a combination of a bull spread and a bear spread. It is a limited profit, limited risk options strategy. There are 3 striking prices involved in a butterfly spread and it can be constructed using calls or puts.
+
+#### Broken Wing Butterfly:
+
+A Broken Wing Butterfly is a long butterfly spread with long strikes that are not equidistant from the short strike. This leads to one side having greater risk than the other, which makes the trade slightly more directional than a standard long butterfly spread.
+
+#### Bear Spread:
+
+Bear spreads are comonly used when the undelying security is expeced to fall.
+
+* Vertical Spread:
+
+The vertical bear spread is a vertical spread in which options with a lower striking price are sold and options with a higher striking price are purchased. Depending on whether calls or puts are used, the vertical bear spread can be entered with a net credit or a net debit.
+
+* Horizontal Spread:
+
+The bear calendar spread and the diagonal bear spread are both time spread strategies used by option traders who believe that the price of the underlying security will remain stable in the near term but will eventually fall in the long term.
+
