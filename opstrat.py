@@ -342,6 +342,17 @@ def bear_spread(spot_price, long_put_strike_price, long_put_premium, \
 
     print("Maximum Profit: {}".format(max(bear_put_payoff)))
     print("Maximum Loss: {}".format(min(bear_put_payoff)))  
+
+    # plot
+    fig, ax = plt.subplots(figsize=(10,5))
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT, bear_Put_payoff, color ='b', label = 'Bear Put Spread')
+    ax.plot(sT, long_put_payoff,'--', color ='g', label ='Long Put')
+    ax.plot(sT, short_put_payoff,'--', color ='r', label ='Short Put')
+    plt.legend()
+    plt.xlabel('Stock Price (sT)')
+    plt.ylabel('Profit & Loss')
+    plt.show()
     
 def bear_call_ladder(spot_price, OTM_long_call, premium_OTM_long_call, ATM_long_call, premium_ATM_long_call, ITM_short_call, premium_ITM_short_call):
     
