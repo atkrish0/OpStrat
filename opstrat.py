@@ -370,4 +370,15 @@ def bear_call_ladder(spot_price, OTM_long_call, premium_OTM_long_call, ATM_long_
     print("Maximum Profit: {}".format(max(bear_call_ladder)))
     print("Maximum Loss: {}".format(min(bear_call_ladder)))
 
+    # plot
+    fig, ax = plt.subplots(figsize=(8,5))
+    ax.spines['bottom'].set_position('zero')
+    ax.plot(sT, bear_call_ladder, color='b', label= 'Bear Call Ladder')
+    ax.plot(sT, ATM_long_call_payoff,'--', color='g',label='ATM Long Call')
+    ax.plot(sT, OTM_long_call_payoff,'--', color='g', label='OTM Long Call')
+    ax.plot(sT, ITM_Short_call_payoff, '--', color='r', label='ITM Short call')
+    plt.legend()
+    plt.xlabel('Stock Price')
+    plt.ylabel('Profit & Loss')
+    plt.show()
 
