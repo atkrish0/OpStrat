@@ -21,7 +21,7 @@ Strategies under consideration:
 #### Synthetic Long Put:
 
 A synthetic long put is created when short stock position is combined with a long call of the same series.
-The synthetic long put is so named because the established position has the same profit potential as long put.
+The synthetic long put is named so because the established position has the same profit potential as long put.
 
 #### Option Strangle:
 
