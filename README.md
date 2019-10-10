@@ -1,5 +1,5 @@
 # OpStrat
-Implementations of  widely used Options (Finanacial Derivatives) Trading Strategies, with a number of experimental features. Still under construction. To be converted to a library in the foreseeable future.
+Implementations of  widely used Options (Finanacial Derivatives) Trading Strategies, with a number of experimental features. Still under construction. 
 
 
 Strategies under consideration:
